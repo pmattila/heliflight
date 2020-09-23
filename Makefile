@@ -528,13 +528,8 @@ tty_flash:
 
 ## dfu_flash         : flash firmware (.bin) onto flight controller via a DFU mode
 dfu_flash:
-ifneq (no-port-found,$(SERIAL_DEVICE))
-	# potentially this is because the MCU already is in DFU mode, try anyway
-	$(V0) echo -n 'R' > $(SERIAL_DEVICE)
-	$(V0) sleep 1
-endif
 	$(V0) $(MAKE) $(TARGET_DFU)
-	$(V0) dfu-util -a 0 -D $(TARGET_DFU) -s :leave
+	$(V0) dfu-util -a 0 -D $(TARGET_DFU)
 
 st-flash_$(TARGET): $(TARGET_BIN)
 	$(V0) st-flash --reset write $< 0x08000000
