@@ -174,6 +174,8 @@
 
 #define USE_BEEPER
 
+#define USE_OVERCLOCK
+
 #define DEFAULT_RX_FEATURE	0
 #define DEFAULT_FEATURE		0
 
@@ -186,4 +188,3 @@
 #define TARGET_IO_PORTG		0xffff
 
 #define USABLE_TIMER_CHANNEL_COUNT 1
-
