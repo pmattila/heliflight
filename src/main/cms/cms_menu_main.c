@@ -170,9 +170,6 @@ static const OSD_Entry menuMainEntries[] =
 
     {"PROFILE",     OME_Submenu,  cmsMenuChange, &cmsx_menuImu, 0},
     {"FEATURES",    OME_Submenu,  cmsMenuChange, &cmsx_menuFeatures, 0},
-#ifdef USE_OSD
-    {"OSD",         OME_Submenu,  cmsMenuChange, &cmsx_menuOsd, 0},
-#endif
     {"FC&FIRMWARE", OME_Submenu,  cmsMenuChange, &cmsx_menuFirmware, 0},
     {"MISC",        OME_Submenu,  cmsMenuChange, &cmsx_menuMisc, 0},
     {"SAVE/EXIT",   OME_Funcall,  cmsx_SaveExitMenu, NULL, 0},

@@ -82,8 +82,6 @@
 
 #include "msp/msp_serial.h"
 
-#include "osd/osd.h"
-
 #include "pg/motor.h"
 #include "pg/pg.h"
 #include "pg/pg_ids.h"
@@ -170,15 +168,6 @@ static bool accNeedsCalibration(void)
 
             return true;
         }
-
-#ifdef USE_OSD
-        // Check for any enabled OSD elements that need the ACC
-        if (featureIsEnabled(FEATURE_OSD)) {
-            if (osdNeedsAccelerometer()) {
-                return true;
-            }
-        }
-#endif
 
 #ifdef USE_GPS_RESCUE
         // Check if failsafe will use GPS Rescue
@@ -395,9 +384,6 @@ void tryArm(void)
         }
 #endif
 
-#ifdef USE_OSD
-        osdSuppressStats(false);
-#endif
         ENABLE_ARMING_FLAG(ARMED);
 
         resetTryingToArm();

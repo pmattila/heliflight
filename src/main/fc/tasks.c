@@ -66,8 +66,6 @@
 #include "msp/msp.h"
 #include "msp/msp_serial.h"
 
-#include "osd/osd.h"
-
 #include "pg/rx.h"
 #include "pg/motor.h"
 
@@ -228,7 +226,7 @@ void tasksInit(void)
 
     const bool useBatteryCurrent = batteryConfig()->currentMeterSource != CURRENT_METER_NONE;
     setTaskEnabled(TASK_BATTERY_CURRENT, useBatteryCurrent);
-    const bool useBatteryAlerts = batteryConfig()->useVBatAlerts || batteryConfig()->useConsumptionAlerts || featureIsEnabled(FEATURE_OSD);
+    const bool useBatteryAlerts = batteryConfig()->useVBatAlerts || batteryConfig()->useConsumptionAlerts;
     setTaskEnabled(TASK_BATTERY_ALERTS, (useBatteryVoltage || useBatteryCurrent) && useBatteryAlerts);
 
 #ifdef STACK_CHECK
@@ -300,10 +298,6 @@ void tasksInit(void)
     setTaskEnabled(TASK_LEDSTRIP, featureIsEnabled(FEATURE_LED_STRIP));
 #endif
 
-#ifdef USE_OSD
-    setTaskEnabled(TASK_OSD, featureIsEnabled(FEATURE_OSD) && osdInitialized());
-#endif
-
 #ifdef USE_BST
     setTaskEnabled(TASK_BST_MASTER_PROCESS, true);
 #endif
@@ -323,8 +317,6 @@ void tasksInit(void)
 #ifdef USE_CMS
 #ifdef USE_MSP_DISPLAYPORT
     setTaskEnabled(TASK_CMS, true);
-#else
-    setTaskEnabled(TASK_CMS, featureIsEnabled(FEATURE_OSD));
 #endif
 #endif
 }
@@ -388,10 +380,6 @@ task_t tasks[TASK_COUNT] = {
 
 #if defined(USE_BARO) || defined(USE_GPS)
     [TASK_ALTITUDE] = DEFINE_TASK("ALTITUDE", NULL, NULL, taskCalculateAltitude, TASK_PERIOD_HZ(40), TASK_PRIORITY_LOW),
-#endif
-
-#ifdef USE_OSD
-    [TASK_OSD] = DEFINE_TASK("OSD", NULL, NULL, osdUpdate, TASK_PERIOD_HZ(60), TASK_PRIORITY_LOW),
 #endif
 
 #ifdef USE_TELEMETRY

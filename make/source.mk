@@ -25,8 +25,6 @@ COMMON_SRC = \
             drivers/bus_spi_config.c \
             drivers/bus_spi_pinconfig.c \
             drivers/buttons.c \
-            drivers/display.c \
-            drivers/display_canvas.c \
             drivers/dma_reqmap.c \
             drivers/exti.c \
             drivers/io.c \
@@ -134,25 +132,19 @@ COMMON_SRC = \
             cms/cms_menu_ledstrip.c \
             cms/cms_menu_main.c \
             cms/cms_menu_misc.c \
-            cms/cms_menu_osd.c \
             cms/cms_menu_power.c \
             cms/cms_menu_saveexit.c \
             drivers/light_ws2811strip.c \
             drivers/rangefinder/rangefinder_hcsr04.c \
             drivers/rangefinder/rangefinder_lidartf.c \
             drivers/serial_escserial.c \
-            io/displayport_frsky_osd.c \
-            io/displayport_max7456.c \
             io/displayport_msp.c \
             io/displayport_srxl.c \
             io/displayport_crsf.c \
             io/displayport_hott.c \
-            io/frsky_osd.c \
             io/gps.c \
             io/ledstrip.c \
             io/pidaudio.c \
-            osd/osd.c \
-            osd/osd_elements.c \
             sensors/barometer.c \
             sensors/rangefinder.c \
             telemetry/telemetry.c \
@@ -291,11 +283,8 @@ SIZE_OPTIMISED_SRC := $(SIZE_OPTIMISED_SRC) \
             cms/cms_menu_ledstrip.c \
             cms/cms_menu_main.c \
             cms/cms_menu_misc.c \
-            cms/cms_menu_osd.c \
             cms/cms_menu_power.c \
             cms/cms_menu_saveexit.c \
-            osd/osd.c \
-            osd/osd_elements.c \
             rx/rx_bind.c \
             sensors/gyro_init.c
 
@@ -315,7 +304,6 @@ SPEED_OPTIMISED_SRC := $(SPEED_OPTIMISED_SRC) \
             drivers/bus_i2c_hal.c \
             drivers/bus_spi_ll.c \
             rx/frsky_crc.c \
-            drivers/max7456.c \
             drivers/pwm_output_dshot.c \
             drivers/pwm_output_dshot_shared.c \
             drivers/pwm_output_dshot_hal.c

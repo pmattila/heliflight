@@ -175,16 +175,6 @@
 #define USE_USB_ADVANCED_PROFILES
 #endif
 
-#if defined(USE_MAX7456)
-#define USE_OSD
-#endif
-
-#if !defined(USE_OSD)
-#undef USE_RX_LINK_QUALITY_INFO
-#undef USE_OSD_PROFILES
-#undef USE_OSD_STICK_OVERLAY
-#endif
-
 #if defined(USE_GPS_RESCUE)
 #define USE_GPS
 #endif

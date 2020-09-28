@@ -27,7 +27,6 @@
 #include "common/utils.h"
 
 #include "drivers/display_canvas.h"
-#include "drivers/osd.h"
 
 #include "display.h"
 

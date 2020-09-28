@@ -68,8 +68,6 @@
 #include "pg/usb.h"
 #endif
 
-#include "osd/osd.h"
-
 #include "rx/rx.h"
 
 #ifdef USE_USB_CDC_HID
@@ -89,9 +87,6 @@ displayPort_t *pCurrentDisplay;
 static displayPort_t *cmsDisplayPorts[CMS_MAX_DEVICE];
 static unsigned cmsDeviceCount;
 static int cmsCurrentDevice = -1;
-#ifdef USE_OSD
-static unsigned int osdProfileCursor = 1;
-#endif
 
 int menuChainBack;
 
@@ -379,9 +374,7 @@ static int cmsDrawMenuEntry(displayPort_t *pDisplay, const OSD_Entry *p, uint8_t
     char buff[CMS_DRAW_BUFFER_LEN +1]; // Make room for null terminator.
     int cnt = 0;
 
-#ifndef USE_OSD
     UNUSED(selectedRow);
-#endif
 
     if (smallScreen) {
         row++;
@@ -440,32 +433,6 @@ static int cmsDrawMenuEntry(displayPort_t *pDisplay, const OSD_Entry *p, uint8_t
             CLR_PRINTVALUE(*flags);
         }
         break;
-
-#ifdef USE_OSD
-    case OME_VISIBLE:
-        if (IS_PRINTVALUE(*flags) && p->data) {
-            uint16_t *val = (uint16_t *)p->data;
-            bool cursorBlink = millis() % (2 * CMS_CURSOR_BLINK_DELAY_MS) < CMS_CURSOR_BLINK_DELAY_MS;
-            for (unsigned x = 1; x < OSD_PROFILE_COUNT + 1; x++) {
-                if (VISIBLE_IN_OSD_PROFILE(*val, x)) {
-                    if (osdElementEditing && cursorBlink && selectedRow && (x == osdProfileCursor)) {
-                        strcpy(buff + x - 1, " ");
-                    } else {
-                        strcpy(buff + x - 1, "X");
-                    }
-                } else {
-                    if (osdElementEditing && cursorBlink && selectedRow && (x == osdProfileCursor)) {
-                        strcpy(buff + x - 1, " ");
-                    } else {
-                        strcpy(buff + x - 1, "-");
-                    }
-                }
-            }
-            cnt = cmsDrawMenuItemValue(pDisplay, buff, row, 3);
-            CLR_PRINTVALUE(*flags);
-        }
-        break;
-#endif
 
     case OME_UINT8:
         if (IS_PRINTVALUE(*flags) && p->data) {
@@ -991,42 +958,6 @@ STATIC_UNIT_TESTED uint16_t cmsHandleKey(displayPort_t *pDisplay, cms_key_e key)
                 }
             }
             break;
-
-#ifdef USE_OSD
-        case OME_VISIBLE:
-            if (p->data) {
-                uint16_t *val = (uint16_t *)p->data;
-                const uint16_t previousValue = *val;
-                if ((key == CMS_KEY_RIGHT) && (!osdElementEditing)) {
-                    osdElementEditing = true;
-                    osdProfileCursor = 1;
-                } else if (osdElementEditing) {
-#ifdef USE_OSD_PROFILES
-                    if (key == CMS_KEY_RIGHT) {
-                        if (osdProfileCursor < OSD_PROFILE_COUNT) {
-                            osdProfileCursor++;
-                        }
-                    }
-                    if (key == CMS_KEY_LEFT) {
-                        if (osdProfileCursor > 1) {
-                            osdProfileCursor--;
-                        }
-                    }
-#endif
-                    if (key == CMS_KEY_UP) {
-                        *val |= OSD_PROFILE_FLAG(osdProfileCursor);
-                    }
-                    if (key == CMS_KEY_DOWN) {
-                        *val &= ~OSD_PROFILE_FLAG(osdProfileCursor);
-                    }
-                }
-                SET_PRINTVALUE(runtimeEntryFlags[currentCtx.cursorRow]);
-                if ((p->flags & REBOOT_REQUIRED) && (*val != previousValue)) {
-                    setRebootRequired();
-                }
-            }
-            break;
-#endif
 
         case OME_UINT8:
         case OME_FLOAT:

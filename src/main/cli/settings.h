@@ -67,9 +67,6 @@ typedef enum {
     TABLE_FAILSAFE,
     TABLE_FAILSAFE_SWITCH_MODE,
     TABLE_BUS_TYPE,
-#ifdef USE_MAX7456
-    TABLE_MAX7456_CLOCK,
-#endif
 #ifdef USE_RX_FRSKY_SPI
     TABLE_RX_FRSKY_SPI_A1_SOURCE,
 #endif
@@ -90,9 +87,6 @@ typedef enum {
     TABLE_GYRO,
 #endif
     TABLE_THROTTLE_LIMIT_TYPE,
-#if defined(USE_MAX7456) || defined(USE_FRSKYOSD)
-    TABLE_VIDEO_SYSTEM,
-#endif
 #if defined(USE_ITERM_RELAX)
     TABLE_ITERM_RELAX,
     TABLE_ITERM_RELAX_TYPE,
@@ -119,10 +113,6 @@ typedef enum {
     TABLE_OFF_ON_AUTO,
     TABLE_INTERPOLATED_SP,
     TABLE_DSHOT_BITBANGED_TIMER,
-    TABLE_OSD_DISPLAYPORT_DEVICE,
-#ifdef USE_OSD
-    TABLE_OSD_LOGO_ON_ARMING,
-#endif
 #ifdef USE_ESC_SENSOR
     TABLE_ESC_SENSOR_PROTOCOL,
 #endif
@@ -240,7 +230,5 @@ extern const char * const lookupTableRescueAltitudeMode[];
 extern const char * const lookupTableItermRelax[];
 
 extern const char * const lookupTableItermRelaxType[];
-
-extern const char * const lookupTableOsdDisplayPortDevice[];
 
 extern const char * const lookupTableInterpolatedSetpoint[];

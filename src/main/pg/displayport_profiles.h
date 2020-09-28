@@ -38,4 +38,3 @@ typedef struct displayPortProfile_s {
 
 PG_DECLARE(displayPortProfile_t, displayPortProfileMsp);
 
-PG_DECLARE(displayPortProfile_t, displayPortProfileMax7456);

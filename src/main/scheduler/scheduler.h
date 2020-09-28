@@ -108,9 +108,6 @@ typedef enum {
 #ifdef STACK_CHECK
     TASK_STACK_CHECK,
 #endif
-#ifdef USE_OSD
-    TASK_OSD,
-#endif
 #ifdef USE_BST
     TASK_BST_MASTER_PROCESS,
 #endif

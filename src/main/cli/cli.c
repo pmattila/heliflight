@@ -119,8 +119,6 @@ bool cliMode = false;
 #include "msp/msp_box.h"
 #include "msp/msp_protocol.h"
 
-#include "osd/osd.h"
-
 #include "pg/adc.h"
 #include "pg/beeper.h"
 #include "pg/beeper_dev.h"
@@ -128,7 +126,6 @@ bool cliMode = false;
 #include "pg/bus_i2c.h"
 #include "pg/bus_spi.h"
 #include "pg/gyrodev.h"
-#include "pg/max7456.h"
 #include "pg/mco.h"
 #include "pg/motor.h"
 #include "pg/pinio.h"
@@ -258,7 +255,7 @@ static const char * const featureNames[] = {
     [15] = "RSSI_ADC",
     [16] = "LED_STRIP",
     [17] = "",
-    [18] = "OSD",
+    [18] = "",
     [19] = "",
     [20] = "",
     [21] = "",
@@ -4329,15 +4326,7 @@ static void cliStatus(const char *cmdName, char *cmdline)
     cliPrintLinefeed();
 #endif /* USE_SENSOR_NAMES */
 
-#if defined(USE_OSD)
-    osdDisplayPortDevice_e displayPortDeviceType;
-    osdGetDisplayPort(&displayPortDeviceType);
-
-    cliPrintLinef("OSD: %s", lookupTableOsdDisplayPortDevice[displayPortDeviceType]);
-#endif
-
     // Uptime and wall clock
-
     cliPrintf("System Uptime: %d seconds", millis() / 1000);
 
 #ifdef USE_RTC_TIME
@@ -4652,9 +4641,6 @@ const cliResourceValue_t resourceTable[] = {
 #endif
 #ifdef USE_FLASH_CHIP
     DEFS( OWNER_FLASH_CS,      PG_FLASH_CONFIG, flashConfig_t, csTag ),
-#endif
-#ifdef USE_MAX7456
-    DEFS( OWNER_OSD_CS,        PG_MAX7456_CONFIG, max7456Config_t, csTag ),
 #endif
 #ifdef USE_RX_SPI
     DEFS( OWNER_RX_SPI_CS,     PG_RX_SPI_CONFIG, rxSpiConfig_t, csnTag ),

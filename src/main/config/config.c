@@ -61,8 +61,6 @@
 
 #include "msp/msp_box.h"
 
-#include "osd/osd.h"
-
 #include "pg/adc.h"
 #include "pg/beeper.h"
 #include "pg/beeper_dev.h"
@@ -409,10 +407,6 @@ static void validateAndFixConfig(void)
     featureDisableImmediate(FEATURE_LED_STRIP);
 #endif
 
-#ifndef USE_OSD
-    featureDisableImmediate(FEATURE_OSD);
-#endif
-
 #ifndef USE_RX_SPI
     featureDisableImmediate(FEATURE_RX_SPI);
 #endif
@@ -476,16 +470,6 @@ static void validateAndFixConfig(void)
 
 #endif // USE_DSHOT_TELEMETRY
 #endif // USE_DSHOT
-
-#if defined(USE_OSD)
-    for (int i = 0; i < OSD_TIMER_COUNT; i++) {
-         const uint16_t t = osdConfig()->timers[i];
-         if (OSD_TIMER_SRC(t) >= OSD_TIMER_SRC_COUNT ||
-                 OSD_TIMER_PRECISION(t) >= OSD_TIMER_PREC_COUNT) {
-             osdConfigMutable()->timers[i] = osdTimerDefault[i];
-         }
-     }
-#endif
 
 #if defined(TARGET_VALIDATECONFIG)
     targetValidateConfiguration();
