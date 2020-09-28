@@ -273,7 +273,7 @@
 #define ADC2_DMA_OPT 9
 #define ADC3_DMA_OPT 10
 
-#define DEFAULT_FEATURE (FEATURE_OSD)
+#define DEFAULT_FEATURE (0)
 
 #define TARGET_IO_PORTA 0xffff
 #define TARGET_IO_PORTB 0xffff

@@ -103,7 +103,7 @@
 
 
 #define DEFAULT_RX_FEATURE      FEATURE_RX_SERIAL
-#define DEFAULT_FEATURES        (FEATURE_OSD | FEATURE_RSSI_ADC | FEATURE_OSD)
+#define DEFAULT_FEATURES        (FEATURE_RSSI_ADC)
 
 // IO - stm32f303cc in 48pin package
 #define TARGET_IO_PORTA         0xffff

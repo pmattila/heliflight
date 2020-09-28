@@ -130,7 +130,7 @@
 
 
 #define DEFAULT_RX_FEATURE          FEATURE_RX_SERIAL
-#define DEFAULT_FEATURES            ( FEATURE_OSD  )
+#define DEFAULT_FEATURES            ( 0  )
 #define CURRENT_METER_SCALE_DEFAULT 250
 
 #define TARGET_IO_PORTA (0xffff )

@@ -34,10 +34,6 @@
 
 void targetConfiguration(void)
 {
-    if (hardwareRevision >= FORTINIF4_REV_2) {
-        featureConfigSet(FEATURE_OSD);
-    }
-
     telemetryConfigMutable()->halfDuplex = false;
 }
 #endif

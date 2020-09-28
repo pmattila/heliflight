@@ -64,7 +64,7 @@
 #define USE_MAG_QMC5883
 #define MAG_I2C_INSTANCE         (I2CDEV_2)
 
-#define DEFAULT_FEATURES        (FEATURE_OSD)
+#define DEFAULT_FEATURES        (0)
 #define USE_MAX7456
 #define MAX7456_SPI_INSTANCE    SPI3
 #define MAX7456_SPI_CS_PIN      PA15

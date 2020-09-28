@@ -102,7 +102,7 @@
 
 #define USE_ESCSERIAL
 
-#define DEFAULT_FEATURES                    (FEATURE_OSD)
+#define DEFAULT_FEATURES                    (0)
 #define DEFAULT_VOLTAGE_METER_SOURCE        VOLTAGE_METER_ADC
 #define DEFAULT_CURRENT_METER_SOURCE        CURRENT_METER_ADC
 

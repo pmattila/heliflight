@@ -142,7 +142,7 @@
 #define ENABLE_BLACKBOX_LOGGING_ON_SDCARD_BY_DEFAULT
 
 #define DEFAULT_RX_FEATURE      FEATURE_RX_PPM
-#define DEFAULT_FEATURES        (FEATURE_OSD)
+#define DEFAULT_FEATURES        (0)
 
 // Disable rarely used buttons in favor of flash space
 //#define USE_BUTTONS

@@ -197,7 +197,7 @@
 
 #define DEFAULT_RX_FEATURE      FEATURE_RX_SERIAL
 
-#define DEFAULT_FEATURES        (FEATURE_OSD)
+#define DEFAULT_FEATURES        (0)
 
 #define TARGET_IO_PORTA (0xffff & ~(BIT(14)|BIT(13)))
 #define TARGET_IO_PORTB (0xffff & ~(BIT(2)))
