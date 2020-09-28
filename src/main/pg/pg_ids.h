@@ -108,7 +108,7 @@
 #define PG_SERIAL_PIN_CONFIG 509
 #define PG_ADC_CONFIG 510
 #define PG_SDCARD_CONFIG 511
-#define PG_DISPLAY_PORT_MSP_CONFIG 512
+//#define PG_DISPLAY_PORT_MSP_CONFIG 512
 //#define PG_DISPLAY_PORT_MAX7456_CONFIG 513
 #define PG_VCD_CONFIG 514
 //#define PG_VTX_CONFIG 515
@@ -129,7 +129,7 @@
 #define PG_PINIOBOX_CONFIG 530
 #define PG_USB_CONFIG 531
 #define PG_SDIO_CONFIG 532
-#define PG_DISPLAY_PORT_CRSF_CONFIG 533  // no longer required -- never released
+//#define PG_DISPLAY_PORT_CRSF_CONFIG 533  // no longer required -- never released
 #define PG_TIMER_IO_CONFIG 534 // used to store the index for timer use in timerHardware array in target.c
 #define PG_SPI_PREINIT_IPU_CONFIG 535
 #define PG_SPI_PREINIT_OPU_CONFIG 536
@@ -154,12 +154,6 @@
 #define PG_HELI_MIXER 555
 #define PG_GOVERNOR_CONFIG 556
 #define PG_HELI_MIXER_SCALES 557
-
-// OSD configuration (subject to change)
-//#define PG_OSD_FONT_CONFIG 2047
-//#define PG_OSD_VIDEO_CONFIG 2046
-//#define PG_OSD_ELEMENT_CONFIG 2045
-
 
 // 4095 is currently the highest number that can be used for a PGN due to the top 4 bits of the 16 bit value being reserved for the version when the PG is stored in an EEPROM.
 #define PG_RESERVED_FOR_TESTING_1 4095

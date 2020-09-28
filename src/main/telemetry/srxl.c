@@ -28,9 +28,6 @@
 
 #include "build/version.h"
 
-#include "cms/cms.h"
-#include "io/displayport_srxl.h"
-
 #include "common/crc.h"
 #include "common/streambuf.h"
 #include "common/utils.h"

@@ -123,25 +123,10 @@ COMMON_SRC = \
             blackbox/blackbox.c \
             blackbox/blackbox_encoding.c \
             blackbox/blackbox_io.c \
-            cms/cms.c \
-            cms/cms_menu_blackbox.c \
-            cms/cms_menu_failsafe.c \
-            cms/cms_menu_firmware.c \
-            cms/cms_menu_gps_rescue.c\
-            cms/cms_menu_imu.c \
-            cms/cms_menu_ledstrip.c \
-            cms/cms_menu_main.c \
-            cms/cms_menu_misc.c \
-            cms/cms_menu_power.c \
-            cms/cms_menu_saveexit.c \
             drivers/light_ws2811strip.c \
             drivers/rangefinder/rangefinder_hcsr04.c \
             drivers/rangefinder/rangefinder_lidartf.c \
             drivers/serial_escserial.c \
-            io/displayport_msp.c \
-            io/displayport_srxl.c \
-            io/displayport_crsf.c \
-            io/displayport_hott.c \
             io/gps.c \
             io/ledstrip.c \
             io/pidaudio.c \
@@ -274,17 +259,6 @@ SIZE_OPTIMISED_SRC := $(SIZE_OPTIMISED_SRC) \
             io/serial_4way_stk500v2.c \
             io/usb_cdc_hid.c \
             msp/msp_serial.c \
-            cms/cms.c \
-            cms/cms_menu_blackbox.c \
-            cms/cms_menu_failsafe.c \
-            cms/cms_menu_firmware.c \
-            cms/cms_menu_gps_rescue.c\
-            cms/cms_menu_imu.c \
-            cms/cms_menu_ledstrip.c \
-            cms/cms_menu_main.c \
-            cms/cms_menu_misc.c \
-            cms/cms_menu_power.c \
-            cms/cms_menu_saveexit.c \
             rx/rx_bind.c \
             sensors/gyro_init.c
 

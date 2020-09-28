@@ -51,7 +51,6 @@
 #include "drivers/accgyro/accgyro.h"
 #include "drivers/bus_i2c.h"
 #include "drivers/compass/compass.h"
-#include "drivers/display.h"
 #include "drivers/dshot.h"
 #include "drivers/flash.h"
 #include "drivers/io.h"

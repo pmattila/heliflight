@@ -32,8 +32,6 @@
 
 #include "cli/cli.h"
 
-#include "cms/cms.h"
-
 #include "common/axis.h"
 #include "common/filter.h"
 #include "common/maths.h"
@@ -589,11 +587,7 @@ bool processRx(timeUs_t currentTimeUs)
         disarmAt = currentTimeUs + autoDisarmDelayUs;  // extend auto-disarm timer
     }
 
-    if (!IS_RC_MODE_ACTIVE(BOXPARALYZE)
-#ifdef USE_CMS
-        && !cmsInMenu
-#endif
-        ) {
+    if (!IS_RC_MODE_ACTIVE(BOXPARALYZE)) {
         processRcStickPositions();
     }
 

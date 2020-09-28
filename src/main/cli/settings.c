@@ -27,8 +27,6 @@
 
 #include "blackbox/blackbox.h"
 
-#include "cms/cms.h"
-
 #include "common/utils.h"
 #include "common/time.h"
 
@@ -64,7 +62,6 @@
 #include "pg/beeper.h"
 #include "pg/beeper_dev.h"
 #include "pg/bus_i2c.h"
-#include "pg/displayport_profiles.h"
 #include "pg/flash.h"
 #include "pg/gyrodev.h"
 #include "pg/mco.h"
@@ -513,6 +510,7 @@ const lookupTableEntry_t lookupTables[] = {
     LOOKUP_TABLE_ENTRY(lookupTableOffOnAuto),
     LOOKUP_TABLE_ENTRY(lookupTableInterpolatedSetpoint),
     LOOKUP_TABLE_ENTRY(lookupTableDshotBitbangedTimer),
+
 #ifdef USE_ESC_SENSOR
     LOOKUP_TABLE_ENTRY(lookupTableEscSensorProtocol),
 #endif
@@ -1061,15 +1059,6 @@ const clivalue_t valueTable[] = {
     { "pwr_on_arm_grace",           VAR_UINT8  | MASTER_VALUE, .config.minmaxUnsigned = { 0, 30 }, PG_SYSTEM_CONFIG, offsetof(systemConfig_t, powerOnArmingGraceTime) },
     { "scheduler_optimize_rate",    VAR_UINT8  | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON_AUTO }, PG_SYSTEM_CONFIG, offsetof(systemConfig_t, schedulerOptimizeRate) },
     { "enable_stick_arming",        VAR_UINT8  | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, PG_SYSTEM_CONFIG, offsetof(systemConfig_t, enableStickArming) },
-
-// PG_DISPLAY_PORT_MSP_CONFIG
-#ifdef USE_MSP_DISPLAYPORT
-    { "displayport_msp_col_adjust", VAR_INT8    | MASTER_VALUE, .config.minmax = { -6, 0 }, PG_DISPLAY_PORT_MSP_CONFIG, offsetof(displayPortProfile_t, colAdjust) },
-    { "displayport_msp_row_adjust", VAR_INT8    | MASTER_VALUE, .config.minmax = { -3, 0 }, PG_DISPLAY_PORT_MSP_CONFIG, offsetof(displayPortProfile_t, rowAdjust) },
-    { "displayport_msp_serial",     VAR_INT8    | MASTER_VALUE, .config.minmax = { SERIAL_PORT_NONE, SERIAL_PORT_IDENTIFIER_MAX }, PG_DISPLAY_PORT_MSP_CONFIG, offsetof(displayPortProfile_t, displayPortSerial) },
-    { "displayport_msp_attrs",      VAR_UINT8   | MASTER_VALUE | MODE_ARRAY, .config.array.length = 4, PG_DISPLAY_PORT_MSP_CONFIG, offsetof(displayPortProfile_t, attrValues) },
-    { "displayport_msp_use_device_blink",   VAR_UINT8   | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, PG_DISPLAY_PORT_MSP_CONFIG, offsetof(displayPortProfile_t, useDeviceBlink) },
-#endif
 
 #ifdef USE_ESC_SENSOR
     { "esc_sensor_halfduplex",          VAR_UINT8   | MASTER_VALUE | MODE_LOOKUP, .config.lookup = { TABLE_OFF_ON }, PG_ESC_SENSOR_CONFIG, offsetof(escSensorConfig_t, halfDuplex) },

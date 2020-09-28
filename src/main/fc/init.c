@@ -30,9 +30,6 @@
 #include "build/build_config.h"
 #include "build/debug.h"
 
-#include "cms/cms.h"
-#include "cms/cms_types.h"
-
 #include "common/axis.h"
 #include "common/color.h"
 #include "common/maths.h"
@@ -94,9 +91,6 @@
 
 #include "io/asyncfatfs/asyncfatfs.h"
 #include "io/beeper.h"
-#include "io/displayport_crsf.h"
-#include "io/displayport_msp.h"
-#include "io/displayport_srxl.h"
 #include "io/flashfs.h"
 #include "io/gps.h"
 #include "io/ledstrip.h"
@@ -857,34 +851,6 @@ void init(void)
     // Initialize MSP
     mspInit();
     mspSerialInit();
-
-/*
- * CMS, display devices and OSD
- */
-#ifdef USE_CMS
-    cmsInit();
-#endif
-
-#if (defined(USE_MSP_DISPLAYPORT) && defined(USE_CMS))
-    displayPort_t *osdDisplayPort = NULL;
-    osdDisplayPortDevice_e osdDisplayPortDevice = OSD_DISPLAYPORT_DEVICE_NONE;
-#endif
-
-#if defined(USE_CMS) && defined(USE_MSP_DISPLAYPORT)
-    // If BFOSD is not active, then register MSP_DISPLAYPORT as a CMS device.
-    if (!osdDisplayPort) {
-        cmsDisplayPortRegister(displayPortMspInit());
-    }
-#endif
-
-#if defined(USE_CMS) && defined(USE_SPEKTRUM_CMS_TELEMETRY) && defined(USE_TELEMETRY_SRXL)
-    // Register the srxl Textgen telemetry sensor as a displayport device
-    cmsDisplayPortRegister(displayPortSrxlInit());
-#endif
-
-#if defined(USE_CMS) && defined(USE_CRSF_CMS_TELEMETRY)
-    cmsDisplayPortRegister(displayPortCrsfInit());
-#endif
 
     setArmingDisabled(ARMING_DISABLED_BOOT_GRACE_TIME);
 

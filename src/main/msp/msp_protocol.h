@@ -192,11 +192,11 @@
 #define MSP_TRANSPONDER_CONFIG          82 //out message         Get transponder settings
 #define MSP_SET_TRANSPONDER_CONFIG      83 //in message          Set transponder settings
 
-#define MSP_OSD_CONFIG                  84 //out message         Get osd settings - betaflight
-#define MSP_SET_OSD_CONFIG              85 //in message          Set osd settings - betaflight
+//#define MSP_OSD_CONFIG                  84 //out message         Get osd settings - betaflight
+//#define MSP_SET_OSD_CONFIG              85 //in message          Set osd settings - betaflight
 
-#define MSP_OSD_CHAR_READ               86 //out message         Get osd settings - betaflight
-#define MSP_OSD_CHAR_WRITE              87 //in message          Set osd settings - betaflight
+//#define MSP_OSD_CHAR_READ               86 //out message         Get osd settings - betaflight
+//#define MSP_OSD_CHAR_WRITE              87 //in message          Set osd settings - betaflight
 
 // #define MSP_VTX_CONFIG                  88 //out message         Get vtx settings - betaflight
 // #define MSP_SET_VTX_CONFIG              89 //in message          Set vtx settings - betaflight
@@ -221,11 +221,11 @@
 //
 // OSD specific
 //
-#define MSP_OSD_VIDEO_CONFIG            180
-#define MSP_SET_OSD_VIDEO_CONFIG        181
+//#define MSP_OSD_VIDEO_CONFIG            180
+//#define MSP_SET_OSD_VIDEO_CONFIG        181
 
 // External OSD displayport mode messages
-#define MSP_DISPLAYPORT                 182
+//#define MSP_DISPLAYPORT                 182
 
 #define MSP_COPY_PROFILE                183
 

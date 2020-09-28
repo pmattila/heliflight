@@ -40,8 +40,6 @@
 #include "common/streambuf.h"
 #include "common/utils.h"
 
-#include "cms/cms.h"
-
 #include "drivers/nvic.h"
 
 #include "config/config.h"
@@ -51,7 +49,6 @@
 #include "flight/imu.h"
 #include "flight/position.h"
 
-#include "io/displayport_crsf.h"
 #include "io/gps.h"
 #include "io/serial.h"
 

@@ -215,15 +215,12 @@ static const adjustmentConfig_t defaultAdjustmentConfigs[ADJUSTMENT_FUNCTION_COU
         .mode = ADJUSTMENT_MODE_STEP,
         .data = { .step = 1 }
     }, {
-        .adjustmentFunction = ADJUSTMENT_OSD_PROFILE,
-        .mode = ADJUSTMENT_MODE_SELECT,
-        .data = { .switchPositions = 3 }
-    }, {
         .adjustmentFunction = ADJUSTMENT_LED_PROFILE,
         .mode = ADJUSTMENT_MODE_SELECT,
         .data = { .switchPositions = 3 }
     }
 };
+
 
 static int applyStepAdjustment(controlRateConfig_t *controlRateConfig, uint8_t adjustmentFunction, int delta)
 {

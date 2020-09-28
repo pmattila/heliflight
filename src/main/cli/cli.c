@@ -42,8 +42,6 @@ bool cliMode = false;
 
 #include "cli/settings.h"
 
-#include "cms/cms.h"
-
 #include "common/axis.h"
 #include "common/color.h"
 #include "common/maths.h"
@@ -69,7 +67,6 @@ bool cliMode = false;
 #include "drivers/dshot_dpwm.h"
 #include "drivers/pwm_output_dshot_shared.h"
 #include "drivers/compass/compass.h"
-#include "drivers/display.h"
 #include "drivers/dma.h"
 #include "drivers/flash.h"
 #include "drivers/inverter.h"

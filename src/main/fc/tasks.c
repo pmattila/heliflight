@@ -28,8 +28,6 @@
 
 #include "cli/cli.h"
 
-#include "cms/cms.h"
-
 #include "common/color.h"
 #include "common/utils.h"
 
@@ -313,12 +311,6 @@ void tasksInit(void)
 #ifdef USE_PINIOBOX
     setTaskEnabled(TASK_PINIOBOX, true);
 #endif
-
-#ifdef USE_CMS
-#ifdef USE_MSP_DISPLAYPORT
-    setTaskEnabled(TASK_CMS, true);
-#endif
-#endif
 }
 
 #if defined(USE_TASK_STATISTICS)
@@ -396,10 +388,6 @@ task_t tasks[TASK_COUNT] = {
 
 #ifdef USE_ESC_SENSOR
     [TASK_ESC_SENSOR] = DEFINE_TASK("ESC_SENSOR", NULL, NULL, escSensorProcess, TASK_PERIOD_HZ(100), TASK_PRIORITY_LOW),
-#endif
-
-#ifdef USE_CMS
-    [TASK_CMS] = DEFINE_TASK("CMS", NULL, NULL, cmsHandler, TASK_PERIOD_HZ(20), TASK_PRIORITY_LOW),
 #endif
 
 #ifdef USE_ADC_INTERNAL
